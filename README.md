@@ -1,7 +1,7 @@
 # GitHub Project Report Skill
 
 > **创建时间**：2026-07-06 17:20  
-> **最后修改时间**：2026-07-06 17:25  
+> **最后修改时间**：2026-07-06 17:30  
 > **当前版本**：V_1.1  
 > **适用对象**：TRAE 平台用户、AI 智能体使用者  
 > **核心目标**：为智能体提供 GitHub 项目自动化调研能力 — 给定仓库 URL 自动生成结构化报告，并支持跨项目汇总为可视化列表。  
@@ -52,40 +52,31 @@ github-project-report-skill/
 
 ## 安装到智能体
 
-### 前置条件
+### 方法一：一句话安装（推荐）
 
-- 你使用的是 **TRAE 平台**（含智能体功能）
-- 智能体已经可以正常使用
+直接把下面这段提示词发送给你的智能体，它就会自动完成安装：
 
-### 安装步骤
+> 请帮我从 GitHub 仓库 wordyhuang/github-project-report-skill 安装这个 skill。从 code/ 目录下获取 SKILL.md、github_report.py、github_list.py 三个文件，写入到我的项目 .trae/skills/github-project-report-skill/ 目录下。安装完成后确认目录结构是否正确。
 
-**方式一：从 GitHub 仓库安装（推荐）**
+发送后，智能体会自动：
+1. 从 GitHub 仓库读取三个文件
+2. 创建 `.trae/skills/github-project-report-skill/` 目录
+3. 将文件写入对应位置
+4. 向你确认安装完成
 
-该技能已开源到 [wordyhuang/github-project-report-skill](https://github.com/wordyhuang/github-project-report-skill)。将以下三个文件放入你的 TRAE 项目目录下的 `.trae/skills/github-project-report-skill/` 中：
+### 方法二：手动复制文件
 
-| 需要复制的文件 | 复制到 |
-|--------------|--------|
+如果偏好手动操作，该技能已开源到 [wordyhuang/github-project-report-skill](https://github.com/wordyhuang/github-project-report-skill)。将以下三个文件放入 `.trae/skills/github-project-report-skill/` 即可：
+
+| 文件 | 复制到 |
+|------|--------|
 | `code/SKILL.md` | `.trae/skills/github-project-report-skill/SKILL.md` |
 | `code/github_report.py` | `.trae/skills/github-project-report-skill/github_report.py` |
 | `code/github_list.py` | `.trae/skills/github-project-report-skill/github_list.py` |
 
-完整命令：
-
-```bash
-# 在你的 TRAE 项目根目录下执行
-mkdir -p .trae/skills/github-project-report-skill
-cp github-project-report-skill/code/SKILL.md .trae/skills/github-project-report-skill/
-cp github-project-report-skill/code/github_report.py .trae/skills/github-project-report-skill/
-cp github-project-report-skill/code/github_list.py .trae/skills/github-project-report-skill/
-```
-
-**方式二：手动创建目录**
-
-在你的 TRAE 工作区中找到 `.trae/skills/` 目录，新建 `github-project-report-skill/` 文件夹，将三个文件放入即可。
-
 ### 安装验证
 
-安装完成后，你的项目目录结构应如下所示：
+安装完成后，目录结构应如下所示：
 
 ```
 你的项目根目录/
@@ -95,7 +86,6 @@ cp github-project-report-skill/code/github_list.py .trae/skills/github-project-r
 │           ├── SKILL.md
 │           ├── github_report.py
 │           └── github_list.py
-├── ...（你原有的其他文件）
 ```
 
 ## 智能体触发方式
