@@ -3,7 +3,7 @@
 > **创建时间**：2026-07-06 17:20  
 > **最后修改时间**：2026-07-06 17:30  
 > **当前版本**：V_1.1  
-> **适用对象**：TRAE 平台用户、AI 智能体使用者  
+> **适用对象**：AI 智能体使用者  
 > **核心目标**：为智能体提供 GitHub 项目自动化调研能力 — 给定仓库 URL 自动生成结构化报告，并支持跨项目汇总为可视化列表。  
 > **文档简述**：本文档面向智能体的使用者，说明该 skill 是什么、能做什么、怎么安装到你的智能体中。
 
@@ -24,7 +24,7 @@
 
 ## 这是什么技能？
 
-**GitHub Project Report Skill** 是一个安装到 TRAE 平台的智能体技能。安装后，你的智能体获得了以下能力：
+**GitHub Project Report Skill** 是一个智能体技能。安装后，你的智能体获得了以下能力：
 
 > 只要给它一个 GitHub 仓库链接，它就能自动抓取该项目的元数据、README、配置文件、文档和目录结构，提炼成一份结构化的报告（HTML 或 Markdown）。每次搜索过的项目还会被自动记录下来，你可以随时让智能体生成一张带分类配色、可搜索筛选的可视化卡片列表，方便横向对比和回顾。
 
@@ -56,37 +56,24 @@ github-project-report-skill/
 
 直接把下面这段提示词发送给你的智能体，它就会自动完成安装：
 
-> 请帮我从 GitHub 仓库 wordyhuang/github-project-report-skill 安装这个 skill。从 code/ 目录下获取 SKILL.md、github_report.py、github_list.py 三个文件，写入到我的项目 .trae/skills/github-project-report-skill/ 目录下。安装完成后确认目录结构是否正确。
+> 请帮我安装 GitHub Project Report Skill。从 GitHub 仓库 wordyhuang/github-project-report-skill 的 code/ 目录下获取 SKILL.md、github_report.py、github_list.py 三个文件，根据你所在平台的技能安装规范，将它们存放到正确的位置。安装完成后告诉我目录结构和安装结果。
 
 发送后，智能体会自动：
 1. 从 GitHub 仓库读取三个文件
-2. 创建 `.trae/skills/github-project-report-skill/` 目录
-3. 将文件写入对应位置
-4. 向你确认安装完成
+2. 根据自身平台的规范决定安装位置并写入
+3. 向你确认安装完成
+
+> **提示**：不同平台（TRAE、Cursor、Claude、自定义 Agent 等）的技能安装目录不同，智能体自己知道该放哪里。如果你发现安装位置不符合预期，可以直接告诉智能体修改目录。
 
 ### 方法二：手动复制文件
 
-如果偏好手动操作，该技能已开源到 [wordyhuang/github-project-report-skill](https://github.com/wordyhuang/github-project-report-skill)。将以下三个文件放入 `.trae/skills/github-project-report-skill/` 即可：
+如果偏好手动操作，该技能已开源到 [wordyhuang/github-project-report-skill](https://github.com/wordyhuang/github-project-report-skill)。将 `code/` 目录下的三个文件放入你平台的技能目录即可：
 
-| 文件 | 复制到 |
-|------|--------|
-| `code/SKILL.md` | `.trae/skills/github-project-report-skill/SKILL.md` |
-| `code/github_report.py` | `.trae/skills/github-project-report-skill/github_report.py` |
-| `code/github_list.py` | `.trae/skills/github-project-report-skill/github_list.py` |
-
-### 安装验证
-
-安装完成后，目录结构应如下所示：
-
-```
-你的项目根目录/
-├── .trae/
-│   └── skills/
-│       └── github-project-report-skill/
-│           ├── SKILL.md
-│           ├── github_report.py
-│           └── github_list.py
-```
+| 文件 | 说明 |
+|------|------|
+| `code/SKILL.md` | 智能体调用指南（告诉智能体怎么用这个技能） |
+| `code/github_report.py` | 项目信息采集器 |
+| `code/github_list.py` | 项目汇总列表生成器 |
 
 ## 智能体触发方式
 
