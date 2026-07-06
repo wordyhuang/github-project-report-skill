@@ -1,11 +1,6 @@
 # GitHub Project Report Skill
 
-> **创建时间**：2026-07-06 17:20  
-> **最后修改时间**：2026-07-06 17:30  
-> **当前版本**：V_1.1  
-> **适用对象**：AI 智能体使用者  
-> **核心目标**：为智能体提供 GitHub 项目自动化调研能力 — 给定仓库 URL 自动生成结构化报告，并支持跨项目汇总为可视化列表。  
-> **文档简述**：本文档面向智能体的使用者，说明该 skill 是什么、能做什么、怎么安装到你的智能体中。
+> 🌐 **English** · [Read in English](README_EN.md)
 
 ---
 
@@ -43,7 +38,8 @@
 
 ```
 github-project-report-skill/
-├── README.md                ← 本文档（给你看的安装说明）
+├── README.md                ← 中文文档（本文档）
+├── README_EN.md             ← English documentation
 ├── code/
 │   ├── SKILL.md             ← 智能体调用指南（告诉智能体怎么用这个技能）
 │   ├── github_report.py     ← 项目信息采集器（智能体调用）
@@ -112,10 +108,3 @@ github-project-report-skill/
 - **分类配色**：内置 12 套色系（AI 紫、前端蓝、JS 金、Python 绿、自动化天蓝、数据库粉等），未匹配的分类使用默认蓝色
 
 ---
-
-## 版本变更记录
-
-| 版本 | 日期 | 变更内容 |
-|------|------|----------|
-| V_1.0 | 2026-07-06 | 初始版本：信息采集 + SKILL.md 定义 |
-| V_1.1 | 2026-07-06 | 新增 `github_list.py` 项目汇总列表（分类配色、统一布局、搜索筛选）；`github_report.py` 增加 `--category` / `--no-track` 参数和自动追踪逻辑；更新 SKILL.md |
